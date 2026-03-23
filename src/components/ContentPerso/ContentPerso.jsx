@@ -20,7 +20,7 @@ const useStyles = makeStyles()(theme => ({
     }
 }));
 
-const PreviewContentNotRendered = ({media, isActive, ...props}) => {
+const PreviewContentNotRendered = ({media, isActive}) => {
     const {t} = useTranslation();
     const sharedClasses = useCssSharedClasses();
     const {classes} = useStyles();

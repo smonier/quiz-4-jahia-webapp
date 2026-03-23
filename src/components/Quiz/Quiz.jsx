@@ -47,7 +47,7 @@ MktoForm.propTypes = {
     formId: PropTypes.string.isRequired
 };
 
-export const Quiz = props => {
+export const Quiz = () => {
     const {t} = useTranslation();
     const {classes} = useStyles();
     const sharedClasses = useCssSharedClasses();

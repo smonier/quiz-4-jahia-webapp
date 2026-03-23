@@ -100,7 +100,7 @@ const reducer = (qna, action) => {
     }
 };
 
-export const Qna = ({id: qnaId, persoId, ...props}) => {
+export const Qna = ({id: qnaId, persoId}) => {
     const {classes} = useStyles();
     const sharedClasses = useCssSharedClasses();
 

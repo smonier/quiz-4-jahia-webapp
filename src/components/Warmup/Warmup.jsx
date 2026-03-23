@@ -20,7 +20,7 @@ const useStyles = makeStyles()(theme => ({
     }
 }));
 
-export const Warmup = ({id: warmupId, persoId, ...props}) => {
+export const Warmup = ({id: warmupId, persoId}) => {
     const {classes} = useStyles();
     const sharedClasses = useCssSharedClasses();
 

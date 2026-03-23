@@ -7,7 +7,7 @@ import {Typography, CircularProgress} from '@mui/material';
 import {useTranslation} from 'react-i18next';
 import {media} from 'types';
 
-export const Loading = ({media, isActive = false, msg, ...props}) => {
+export const Loading = ({media, isActive = false, msg}) => {
     const {t} = useTranslation();
     const sharedClasses = useCssSharedClasses();
 

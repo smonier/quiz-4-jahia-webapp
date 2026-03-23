@@ -21,7 +21,7 @@ const useStyles = makeStyles()(theme => ({
     }
 }));
 
-export const PersonalizedSlide = ({personalizedResultId, onClick, ...props}) => {
+export const PersonalizedSlide = ({personalizedResultId, onClick}) => {
     const {t} = useTranslation();
     const {workspace, locale, previewCm} = React.useContext(JahiaCtx);
 

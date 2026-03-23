@@ -19,7 +19,7 @@ const useStyles = makeStyles()(theme => ({
     }
 }));
 
-export const Variant = ({personalizedResultId, ...props}) => {
+export const Variant = ({personalizedResultId}) => {
     const {t} = useTranslation();
     const {workspace, locale} = React.useContext(JahiaCtx);
     const cxs = React.useContext(CxsCtx);
