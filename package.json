@@ -71,5 +71,8 @@
   },
   "engines": {
     "yarn": ">=1.22.22"
+  },
+  "overrides": {
+    "typescript": "^4.9.5"
   }
 }
