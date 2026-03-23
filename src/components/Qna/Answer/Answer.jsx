@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Radio, Checkbox, FormControlLabel} from '@material-ui/core';
-import CheckIcon from '@material-ui/icons/Check';
-import ClearIcon from '@material-ui/icons/Clear';
-import {makeStyles} from '@material-ui/core/styles';
+import {Radio, Checkbox, FormControlLabel} from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
+import ClearIcon from '@mui/icons-material/Clear';
+import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     answerGroup: {
         display: 'flex',
         alignItems: 'center',
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
             '&.checked': {
                 backgroundColor: theme.palette.background.checkedAnswer,
                 borderRadius: theme.geometry.checkedAnswer.borderRadius,
-                '& [class*="-MuiTypography-body1"]': {
+                '& .MuiTypography-body1': {
                     color: theme.palette.grey[900]
                 },
                 '& + div::before': {
@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Answer = props => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const {qna, qnaDispatch, id} = props;
     const [answer] = qna.answers.filter(answer => answer.id === id);
 

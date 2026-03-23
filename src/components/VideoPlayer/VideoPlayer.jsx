@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import {AppCtx, JahiaCtx} from 'contexts';
 import ReactPlayer from 'react-player';
 import {syncVideoStatus} from 'misc/trackerWem';
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from 'tss-react/mui';
 
-const useStyles = makeStyles((/* theme */) => ({
+const useStyles = makeStyles()((/* theme */) => ({
     playerWrapper: {}
 }));
 
 export const VideoPlayer = ({ownerID, videoURL, videoId, ...props}) => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const {isPreview} = React.useContext(JahiaCtx);
     const {core: {id: quizId, path: quizPath, type: quizType}} = React.useContext(AppCtx);
 

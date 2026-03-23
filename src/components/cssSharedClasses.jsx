@@ -1,6 +1,6 @@
-import {makeStyles} from '@material-ui/core/styles';
+import {makeStyles} from 'tss-react/mui';
 
-export default makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     textUppercase: {
         textTransform: 'uppercase'
     },
@@ -9,11 +9,11 @@ export default makeStyles(theme => ({
         '&::before': {
             backgroundColor: theme.palette.primary.main,
             display: 'block',
-            width: `${theme.spacing(3)}px`,
-            height: `${theme.spacing(0.25)}px`,
+            width: theme.spacing(3),
+            height: theme.spacing(0.25),
             content: '""',
             margin: 'auto',
-            marginTop: `${theme.spacing(1)}px`
+            marginTop: theme.spacing(1)
         }
     },
     item: {
@@ -150,3 +150,11 @@ export default makeStyles(theme => ({
 
     }
 }));
+
+// Wrapper so components can call cssSharedClasses(props) as a hook and receive the classes object
+const cssSharedClasses = () => {
+    const {classes} = useStyles();
+    return classes;
+};
+
+export default cssSharedClasses;

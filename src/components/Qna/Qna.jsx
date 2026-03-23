@@ -8,16 +8,17 @@ import {Answer} from './Answer';
 import {syncVisitorData, manageTransition} from 'misc';
 import {Media, Loading, cssSharedClasses} from 'components';
 import classnames from 'clsx';
-import {FormGroup, Typography, Button, makeStyles} from '@material-ui/core';
+import {FormGroup, Typography, Button} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     questionGroup: {
         textAlign: 'left',
-        marginTop: `${theme.spacing(2)}px`,
-        marginBottom: `${theme.spacing(4)}px`
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(4)
     },
     question: {
-        marginBottom: `${theme.spacing(2)}px`
+        marginBottom: theme.spacing(2)
     },
     formGroup: {
         textAlign: 'left',
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
             marginLeft: '50px',
             borderBottom: '2px solid rgba(255,255,255,.2)'
         },
-        marginBottom: `${theme.spacing(4)}px`
+        marginBottom: theme.spacing(4)
     }
 }));
 
@@ -100,7 +101,7 @@ const reducer = (qna, action) => {
 };
 
 export const Qna = ({id: qnaId, persoId, ...props}) => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const sharedClasses = cssSharedClasses(props);
 
     const {workspace, locale, isPreview, previewCm} = React.useContext(JahiaCtx);

@@ -1,5 +1,6 @@
 import React from 'react';
-import {makeStyles, Typography, useTheme} from '@material-ui/core';
+import {Typography, useTheme} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
 import {AppCtx, StoreCtx} from 'contexts';
 
@@ -16,7 +17,7 @@ const childTiles = nbRow => {
     }, {});
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     loader: {
         position: 'absolute',
         zIndex: 8, // '999',
@@ -72,7 +73,7 @@ export const Transition = props => {
     const {state: {transitionActive}} = React.useContext(StoreCtx);
 
     const transitionRow = [...Array(theme.transitions.row)];
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     return (
         <div className={classnames(

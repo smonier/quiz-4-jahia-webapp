@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import {JahiaCtx, StoreCtx, CxsCtx} from 'contexts';
 import {useLazyQuery} from '@apollo/client';
 import {GetPersonalizedContentVariant} from 'webappGraphql';
-import {Typography, makeStyles} from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
+import {Typography} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
+import InfoIcon from '@mui/icons-material/Info';
 import {Qna, Warmup, Loading, Media, cssSharedClasses} from 'components';
 import classnames from 'clsx';
 import {useTranslation} from 'react-i18next';
 import {media} from 'types';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     content: {
         // TextAlign: 'left',
         maxWidth: '500px',
-        margin: `${theme.spacing(4)}px auto 0`
+        margin: `${theme.spacing(4)} auto 0`
 
     }
 }));
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 const PreviewContentNotRendered = ({media, isActive, ...props}) => {
     const {t} = useTranslation();
     const sharedClasses = cssSharedClasses(props);
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     return (
         <div className={classnames(

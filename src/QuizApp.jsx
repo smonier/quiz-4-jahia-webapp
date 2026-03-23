@@ -5,7 +5,8 @@ import {ErrorHandler, App} from 'components';
 
 import {serviceWorker, syncTracker, getRandomString} from 'misc';
 
-import {StylesProvider, createGenerateClassName} from '@material-ui/core/styles';
+import createCache from '@emotion/cache';
+import {CacheProvider} from '@emotion/react';
 
 import {contextValidator} from 'douane';
 import {Store} from 'store';
@@ -40,10 +41,7 @@ const render = async (target, context) => {
     try {
         context = contextValidator(context);
 
-        const generateClassName = createGenerateClassName({
-            // DisableGlobal:true,
-            seed: getRandomString(8, 'aA')
-        });
+        const styleCache = createCache({key: getRandomString(8, 'a')});
         const {host, workspace, isEdit, locale, quizId, gqlServerUrl, contextServerUrl, appContext, cndTypes, scope, previewCm, previewTarget} = context;
 
         await i18n.use(initReactI18next) // Passes i18n down to react-i18next
@@ -112,7 +110,7 @@ const render = async (target, context) => {
 
         root.render(
             <React.StrictMode>
-                <StylesProvider generateClassName={generateClassName}>
+                <CacheProvider value={styleCache}>
                     <JahiaCtxProvider value={{
                         workspace,
                         locale,
@@ -148,7 +146,7 @@ const render = async (target, context) => {
                             </ApolloProvider>
                         </Store>
                     </JahiaCtxProvider>
-                </StylesProvider>
+                </CacheProvider>
             </React.StrictMode>
         );
     } catch (e) {

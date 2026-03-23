@@ -4,14 +4,14 @@ import {AppCtx, StoreCtx} from 'contexts';
 import {Media} from 'components/index';
 import cssSharedClasses from 'components/cssSharedClasses';
 import classnames from 'clsx';
-import {Typography, Button} from '@material-ui/core';
-import {makeStyles} from '@material-ui/core/styles';
+import {Typography, Button} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 import {CircularProgressbar} from 'react-circular-progressbar';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     result: {
-        marginTop: `${theme.spacing(4)}px`,
+        marginTop: theme.spacing(4),
         maxWidth: '300px',
         margin: '32px auto',
         '& .CircularProgressbar': {
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Percentage = props => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const {state} = React.useContext(StoreCtx);
 
     const sharedClasses = cssSharedClasses(props);

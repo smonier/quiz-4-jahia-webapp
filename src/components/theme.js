@@ -1,4 +1,4 @@
-import {createTheme} from '@material-ui/core/styles';
+import {createTheme} from '@mui/material/styles';
 import _merge from 'lodash.merge';
 
 const defaultTheme = () => ({
@@ -95,58 +95,52 @@ const defaultTheme = () => ({
         }
     },
     spacing: 8,
-    overrides: {
+    components: {
         MuiCheckbox: {
-            root: {
-                color: 'rgba(255, 255, 255, 0.87)'
+            defaultProps: {
+                disableRipple: true,
+                color: 'primary'
+            },
+            styleOverrides: {
+                root: {
+                    color: 'rgba(255, 255, 255, 0.87)'
+                }
             }
         },
         MuiRadio: {
-            root: {
-                color: 'rgba(255, 255, 255, 0.87)'
+            defaultProps: {
+                disableRipple: true,
+                color: 'primary'
+            },
+            styleOverrides: {
+                root: {
+                    color: 'rgba(255, 255, 255, 0.87)'
+                }
             }
         },
         MuiButton: {
-            contained: {
-                '&$disabled': {
-                    color: 'rgba(255, 255, 255, 0.26)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.12)'
+            defaultProps: {
+                disableRipple: true,
+                color: 'primary',
+                variant: 'contained'
+            },
+            styleOverrides: {
+                contained: {
+                    '&.Mui-disabled': {
+                        color: 'rgba(255, 255, 255, 0.26)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.12)'
+                    }
                 }
             }
-
         },
         MuiTypography: {
-            body1: {
-                '& a': {
-                    color: '#007cb0'
+            styleOverrides: {
+                body1: {
+                    '& a': {
+                        color: '#007cb0'
+                    }
                 }
             }
-        }
-        // MuiCssBaseline: {
-        //     '@global': {
-        //         // '@font-face': ['Lato'],
-        //         '.Mui-disabled': {
-        //             color: "rgba(255, 255, 255, 0.26)",
-        //             backgroundColor: "rgba(255, 255, 255, 0.12)"
-        //         }
-        //
-        //     },
-        // },
-    },
-    props: {
-        MuiButton: {
-            disableRipple: true,
-            color: 'primary',
-            variant: 'contained'
-        },
-
-        MuiCheckbox: {
-            disableRipple: true,
-            color: 'primary'
-        },
-        MuiRadio: {
-            disableRipple: true,
-            color: 'primary'
         }
     }
 });

@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import {AppCtx, JahiaCtx} from 'contexts';
 import {useQuery} from '@apollo/client';
 import {GetPersonalizedScoreNode} from 'webappGraphql';
-import {Button, Typography, makeStyles} from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/Info';
+import {Button, Typography} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
+import InfoIcon from '@mui/icons-material/Info';
 import {Media, Loading, EmbeddedPathInHtmlResolver, cssSharedClasses} from 'components';
 import classnames from 'clsx';
 import {formatPersoResultJcrProps} from './PersoResultModel';
 import {Variant} from './Variant';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     content: {
         // TextAlign: 'left',
         maxWidth: '500px',
-        margin: `${theme.spacing(4)}px auto 0`
+        margin: `${theme.spacing(4)} auto 0`
 
     }
 }));
@@ -25,7 +26,7 @@ export const PersonalizedSlide = ({personalizedResultId, onClick, ...props}) => 
     const {workspace, locale, previewCm} = React.useContext(JahiaCtx);
 
     const sharedClasses = cssSharedClasses(props);
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     const {config: {isResetEnabled}, content: quizContent, languageBundle} = React.useContext(AppCtx);
 

@@ -6,21 +6,22 @@ import {GetWarmup} from 'webappGraphql';
 import {formatWarmupJcrProps} from './WarmupModel';
 import {ContentPerso, Loading, Media, Qna, cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import classnames from 'clsx';
-import {Typography, Button, makeStyles} from '@material-ui/core';
+import {Typography, Button} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 import {manageTransition} from 'misc/utils';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     contentGroup: {
         textAlign: 'justify',
         maxWidth: '800px',
         margin: 'auto',
-        marginTop: `${theme.spacing(3)}px`,
-        marginBottom: `${theme.spacing(4)}px`
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(4)
     }
 }));
 
 export const Warmup = ({id: warmupId, persoId, ...props}) => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const sharedClasses = cssSharedClasses(props);
 
     const {workspace, locale, cndTypes, previewCm} = React.useContext(JahiaCtx);

@@ -1,11 +1,9 @@
 import {Indicator} from 'components/Header/Indicator';
-import {Button, Typography} from '@material-ui/core';
-import React from 'react';
-import {AppCtx, JahiaCtx, StoreCtx} from 'contexts';
-import {makeStyles} from '@material-ui/core/styles';
+import {Button, Typography} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 import {manageTransition} from 'misc/utils';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     wrapper: {
         zIndex: 5,
         position: 'relative',
@@ -27,9 +25,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         // Width:'100%',
-        padding: `${theme.spacing(2)}px ${theme.geometry.caption.padding.lg}`,
+        padding: `${theme.spacing(2)} ${theme.geometry.caption.padding.lg}`,
         [theme.breakpoints.between('xs', 'sm')]: {
-            padding: `${theme.spacing(2)}px ${theme.geometry.caption.padding.main}`
+            padding: `${theme.spacing(2)} ${theme.geometry.caption.padding.main}`
         }
 
     },
@@ -57,7 +55,7 @@ const useStyles = makeStyles(theme => ({
         overflow: 'hidden',
         opacity: 0,
         visibility: 'hidden',
-        marginBottom: `${theme.spacing(1)}px`,
+        marginBottom: theme.spacing(1),
         // Transition: theme.transitions.create(['height'], {
         //     duration: theme.transitions.duration.standard, // '10s',//
         //     easing: theme.transitions.easing.header
@@ -86,7 +84,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Header = props => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     const {isPreview} = React.useContext(JahiaCtx);
     const {state, dispatch} = React.useContext(StoreCtx);

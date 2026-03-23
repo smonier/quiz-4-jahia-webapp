@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'clsx';
 import {Media, cssSharedClasses} from 'components';
-import {Typography, CircularProgress} from '@material-ui/core';
+import {Typography, CircularProgress} from '@mui/material';
 
 import {useTranslation} from 'react-i18next';
 import {media} from 'types';

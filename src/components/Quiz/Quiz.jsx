@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {StoreCtx, AppCtx, JahiaCtx, CxsCtx} from 'contexts';
-import {Button, Typography, makeStyles} from '@material-ui/core';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import InfoIcon from '@material-ui/icons/Info';
+import {Button, Typography} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import InfoIcon from '@mui/icons-material/Info';
 import {useMarketo, Media, cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import classnames from 'clsx';
 import {manageTransition} from 'misc/utils';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     duration: {
         display: 'flex',
         alignItems: 'center',
@@ -18,12 +19,12 @@ const useStyles = makeStyles(theme => ({
         '& svg': {
             marginRight: '3px'
         },
-        marginTop: `${theme.spacing(3)}px`
+        marginTop: theme.spacing(3)
     },
     description: {
         // TextAlign: 'left',
         maxWidth: '500px',
-        margin: `${theme.spacing(4)}px auto`
+        margin: `${theme.spacing(4)} auto`
 
     },
     editInfo: {
@@ -48,7 +49,7 @@ MktoForm.propTypes = {
 
 export const Quiz = props => {
     const {t} = useTranslation();
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const sharedClasses = cssSharedClasses(props);
     const cxs = React.useContext(CxsCtx);
     const {isEdit} = React.useContext(JahiaCtx);

@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import {JahiaCtx, CxsCtx} from 'contexts';
 import {GetPersonalizedScoreVariant} from 'webappGraphql';
 import {useLazyQuery} from '@apollo/client';
-import {Typography, makeStyles, CircularProgress} from '@material-ui/core';
+import {Typography, CircularProgress} from '@mui/material';
+import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
 import {cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import DOMPurify from 'dompurify';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     // Result:{
     //     marginTop: `${theme.spacing(4)}px`,
     // },
     personalizedArea: {
-        padding: `${theme.spacing(4)}px 0`
+        padding: `${theme.spacing(4)} 0`
     }
 }));
 
@@ -24,7 +25,7 @@ export const Variant = ({personalizedResultId, ...props}) => {
     const cxs = React.useContext(CxsCtx);
 
     const sharedClasses = cssSharedClasses(props);
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     const [loadVariant, variantQuery] = useLazyQuery(GetPersonalizedScoreVariant);
 

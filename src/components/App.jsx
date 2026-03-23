@@ -1,6 +1,8 @@
 import React from 'react';
 import {JahiaCtx, StoreCtx, AppCtx, CxsCtx} from '../contexts';
-import {Grid, Typography, makeStyles, ThemeProvider} from '@material-ui/core';
+import {Grid, Typography} from '@mui/material';
+import {ThemeProvider} from '@mui/material/styles';
+import {makeStyles} from 'tss-react/mui';
 import {Quiz, Warmup, Transition, Score, Header, Qna, ContentPerso, Preview, theme} from 'components';
 import classnames from 'clsx';
 
@@ -8,7 +10,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import {useTranslation} from 'react-i18next';
 import {getUserContext} from '../data/userJexpContext';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles()(() => ({
     main: {
         paddingTop: '100px', // `${theme.geometry.header.heights.max}px` cannot use theme, theme is undefined
         marginTop: '-100px',
@@ -25,7 +27,7 @@ const useStyles = makeStyles(() => ({
 
 export const App = props => {
     const {t} = useTranslation();
-    const classes = useStyles(props);
+    const {classes} = useStyles();
     const cxs = React.useContext(CxsCtx);
     const {cndTypes, previewTarget} = React.useContext(JahiaCtx);
     const {content: {media, childNodes, quizKey}, config: {userTheme, isResetEnabled}} = React.useContext(AppCtx);

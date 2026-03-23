@@ -1,7 +1,7 @@
 import React from 'react';
 import {cndTypes} from 'douane/lib/config';
 import {Qna, Quiz, Warmup, ContentPerso, Score} from 'components';
-import {Typography} from '@material-ui/core';
+import {Typography} from '@mui/material';
 import {useTranslation} from 'react-i18next';
 import {previewTarget, media} from 'types';
 

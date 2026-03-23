@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {StoreCtx} from 'contexts';
-import {makeStyles} from '@material-ui/core';
+import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles()((theme) => ({
     indicator: {
         boxSizing: 'content-box !important',
         flex: '0 1 auto',
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Indicator = ({id, isClickable, ...props}) => {
-    const classes = useStyles(props);
+    const {classes} = useStyles();
 
     const {state, dispatch} = React.useContext(StoreCtx);
     const {currentSlide} = state;
