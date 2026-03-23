@@ -7,7 +7,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     answerGroup: {
         display: 'flex',
         alignItems: 'center',

@@ -17,7 +17,7 @@ const childTiles = nbRow => {
     }, {});
 };
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     loader: {
         position: 'absolute',
         zIndex: 8, // '999',
@@ -67,7 +67,7 @@ const useStyles = makeStyles()((theme) => ({
     }
 }));
 
-export const Transition = props => {
+export const Transition = () => {
     const theme = useTheme();
     const {config: {transitionLabel}} = React.useContext(AppCtx);
     const {state: {transitionActive}} = React.useContext(StoreCtx);

@@ -6,12 +6,12 @@ import {AppCtx, JahiaCtx, StoreCtx} from 'contexts';
 import {formatQnaJcrProps} from './QnaModel';
 import {Answer} from './Answer';
 import {syncVisitorData, manageTransition} from 'misc';
-import {Media, Loading, cssSharedClasses} from 'components';
+import {Media, Loading, useCssSharedClasses} from 'components';
 import classnames from 'clsx';
 import {FormGroup, Typography, Button} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     questionGroup: {
         textAlign: 'left',
         marginTop: theme.spacing(2),
@@ -102,7 +102,7 @@ const reducer = (qna, action) => {
 
 export const Qna = ({id: qnaId, persoId, ...props}) => {
     const {classes} = useStyles();
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
 
     const {workspace, locale, isPreview, previewCm} = React.useContext(JahiaCtx);
     const {config: {isTransitionEnabled, transitionTimeout}, languageBundle} = React.useContext(AppCtx);

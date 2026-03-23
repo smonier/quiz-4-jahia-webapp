@@ -5,12 +5,12 @@ import {Button, Typography} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import InfoIcon from '@mui/icons-material/Info';
-import {useMarketo, Media, cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
+import {useMarketo, Media, useCssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import classnames from 'clsx';
 import {manageTransition} from 'misc/utils';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     duration: {
         display: 'flex',
         alignItems: 'center',
@@ -50,7 +50,7 @@ MktoForm.propTypes = {
 export const Quiz = props => {
     const {t} = useTranslation();
     const {classes} = useStyles();
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
     const cxs = React.useContext(CxsCtx);
     const {isEdit} = React.useContext(JahiaCtx);
     const {

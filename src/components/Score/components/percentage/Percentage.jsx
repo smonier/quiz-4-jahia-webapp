@@ -2,14 +2,14 @@ import React from 'react';
 import {AppCtx, StoreCtx} from 'contexts';
 
 import {Media} from 'components/index';
-import cssSharedClasses from 'components/cssSharedClasses';
+import useCssSharedClasses from 'components/cssSharedClasses';
 import classnames from 'clsx';
 import {Typography, Button} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 import {CircularProgressbar} from 'react-circular-progressbar';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     result: {
         marginTop: theme.spacing(4),
         maxWidth: '300px',
@@ -35,7 +35,7 @@ export const Percentage = props => {
     const {classes} = useStyles();
     const {state} = React.useContext(StoreCtx);
 
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
     const {media, title, subtitle, onClick} = props;
     const {config: {isResetEnabled}, languageBundle} = React.useContext(AppCtx);
 

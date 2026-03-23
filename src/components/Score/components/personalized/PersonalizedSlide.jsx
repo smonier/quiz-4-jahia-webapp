@@ -6,13 +6,13 @@ import {GetPersonalizedScoreNode} from 'webappGraphql';
 import {Button, Typography} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 import InfoIcon from '@mui/icons-material/Info';
-import {Media, Loading, EmbeddedPathInHtmlResolver, cssSharedClasses} from 'components';
+import {Media, Loading, EmbeddedPathInHtmlResolver, useCssSharedClasses} from 'components';
 import classnames from 'clsx';
 import {formatPersoResultJcrProps} from './PersoResultModel';
 import {Variant} from './Variant';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     content: {
         // TextAlign: 'left',
         maxWidth: '500px',
@@ -25,7 +25,7 @@ export const PersonalizedSlide = ({personalizedResultId, onClick, ...props}) => 
     const {t} = useTranslation();
     const {workspace, locale, previewCm} = React.useContext(JahiaCtx);
 
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
     const {classes} = useStyles();
 
     const {config: {isResetEnabled}, content: quizContent, languageBundle} = React.useContext(AppCtx);

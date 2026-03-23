@@ -1,14 +1,14 @@
 import React from 'react';
 import {AppCtx, StoreCtx} from 'contexts';
 import {Percentage, PersonalizedSlide} from './components';
-import {cssSharedClasses} from 'components';
+import {useCssSharedClasses} from 'components';
 import classnames from 'clsx';
 import {manageTransition} from 'misc/utils';
 
-export const Score = props => {
+export const Score = () => {
     const {state, dispatch} = React.useContext(StoreCtx);
 
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
     const {config: {isTransitionEnabled, transitionTimeout}, content: {title, subtitle, media, scorePerso}} = React.useContext(AppCtx);
 
     const personalizedResultId = scorePerso?.uuid;

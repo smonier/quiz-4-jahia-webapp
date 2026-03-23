@@ -6,11 +6,11 @@ import {useLazyQuery} from '@apollo/client';
 import {Typography, CircularProgress} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 import classnames from 'clsx';
-import {cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
+import {useCssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import DOMPurify from 'dompurify';
 import {useTranslation} from 'react-i18next';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     // Result:{
     //     marginTop: `${theme.spacing(4)}px`,
     // },
@@ -24,7 +24,7 @@ export const Variant = ({personalizedResultId, ...props}) => {
     const {workspace, locale} = React.useContext(JahiaCtx);
     const cxs = React.useContext(CxsCtx);
 
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
     const {classes} = useStyles();
 
     const [loadVariant, variantQuery] = useLazyQuery(GetPersonalizedScoreVariant);

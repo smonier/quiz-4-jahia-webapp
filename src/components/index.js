@@ -12,5 +12,5 @@ export * from './Loading';
 export * from './ContentPerso';
 export * from './Preview';
 export * from './Jahia';
-export {default as cssSharedClasses} from './cssSharedClasses';
+export {default as useCssSharedClasses} from './cssSharedClasses';
 export {default as theme} from './theme';

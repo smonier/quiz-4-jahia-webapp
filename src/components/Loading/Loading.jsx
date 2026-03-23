@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'clsx';
-import {Media, cssSharedClasses} from 'components';
+import {Media, useCssSharedClasses} from 'components';
 import {Typography, CircularProgress} from '@mui/material';
 
 import {useTranslation} from 'react-i18next';
@@ -9,7 +9,7 @@ import {media} from 'types';
 
 export const Loading = ({media, isActive = false, msg, ...props}) => {
     const {t} = useTranslation();
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
 
     return (
         <div className={classnames(

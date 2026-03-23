@@ -25,7 +25,7 @@ const useStyles = makeStyles()(() => ({
     }
 }));
 
-export const App = props => {
+export const App = () => {
     const {t} = useTranslation();
     const {classes} = useStyles();
     const cxs = React.useContext(CxsCtx);

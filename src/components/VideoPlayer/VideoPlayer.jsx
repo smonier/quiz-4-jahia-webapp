@@ -9,7 +9,7 @@ const useStyles = makeStyles()((/* theme */) => ({
     playerWrapper: {}
 }));
 
-export const VideoPlayer = ({ownerID, videoURL, videoId, ...props}) => {
+export const VideoPlayer = ({ownerID, videoURL, videoId}) => {
     const {classes} = useStyles();
     const {isPreview} = React.useContext(JahiaCtx);
     const {core: {id: quizId, path: quizPath, type: quizType}} = React.useContext(AppCtx);

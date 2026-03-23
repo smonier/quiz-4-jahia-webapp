@@ -4,13 +4,13 @@ import {AppCtx, JahiaCtx, StoreCtx} from 'contexts';
 import {useQuery} from '@apollo/client';
 import {GetWarmup} from 'webappGraphql';
 import {formatWarmupJcrProps} from './WarmupModel';
-import {ContentPerso, Loading, Media, Qna, cssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
+import {ContentPerso, Loading, Media, Qna, useCssSharedClasses, EmbeddedPathInHtmlResolver} from 'components';
 import classnames from 'clsx';
 import {Typography, Button} from '@mui/material';
 import {makeStyles} from 'tss-react/mui';
 import {manageTransition} from 'misc/utils';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     contentGroup: {
         textAlign: 'justify',
         maxWidth: '800px',
@@ -22,7 +22,7 @@ const useStyles = makeStyles()((theme) => ({
 
 export const Warmup = ({id: warmupId, persoId, ...props}) => {
     const {classes} = useStyles();
-    const sharedClasses = cssSharedClasses(props);
+    const sharedClasses = useCssSharedClasses();
 
     const {workspace, locale, cndTypes, previewCm} = React.useContext(JahiaCtx);
     const {config: {isTransitionEnabled, transitionTimeout}, languageBundle} = React.useContext(AppCtx);

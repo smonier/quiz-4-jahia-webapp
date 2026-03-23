@@ -1,6 +1,6 @@
 import {makeStyles} from 'tss-react/mui';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     textUppercase: {
         textTransform: 'uppercase'
     },
@@ -151,10 +151,10 @@ const useStyles = makeStyles()((theme) => ({
     }
 }));
 
-// Wrapper so components can call cssSharedClasses(props) as a hook and receive the classes object
-const cssSharedClasses = () => {
+// Wrapper so components can call useCssSharedClasses() as a hook and receive the classes object
+const useCssSharedClasses = () => {
     const {classes} = useStyles();
     return classes;
 };
 
-export default cssSharedClasses;
+export default useCssSharedClasses;

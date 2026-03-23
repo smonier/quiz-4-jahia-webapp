@@ -1,9 +1,11 @@
 import {Indicator} from 'components/Header/Indicator';
 import {Button, Typography} from '@mui/material';
+import React from 'react';
+import {AppCtx, JahiaCtx, StoreCtx} from 'contexts';
 import {makeStyles} from 'tss-react/mui';
 import {manageTransition} from 'misc/utils';
 
-const useStyles = makeStyles()((theme) => ({
+const useStyles = makeStyles()(theme => ({
     wrapper: {
         zIndex: 5,
         position: 'relative',
@@ -83,7 +85,7 @@ const useStyles = makeStyles()((theme) => ({
     }
 }));
 
-export const Header = props => {
+export const Header = () => {
     const {classes} = useStyles();
 
     const {isPreview} = React.useContext(JahiaCtx);
